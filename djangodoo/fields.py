@@ -262,4 +262,7 @@ class One2ManyField(OdooField):
 def convert_field(details):
     if not(details['type'] in FIELDS_CONV):
         return None
-    return eval(details["type"].title() + "Field")(details)
+    try:
+        return eval(details["type"].title() + "Field")(details)
+    except:
+        return eval(FIELDS_CONV[details["type"]])(details)
