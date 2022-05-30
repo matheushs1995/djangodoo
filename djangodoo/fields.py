@@ -197,6 +197,7 @@ class Many2OneField(OdooField):
 
     def to_django(self, **kwargs):
         kwargs["null"] = not(self.details.get("required"))
+        kwargs["on_delete"] = djangomodels.SET_NULL
         if self.details['relation'] == self.details['model']:
             kwargs["to"] = "self"
         else:
