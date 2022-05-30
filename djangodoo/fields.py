@@ -251,7 +251,7 @@ class One2ManyField(OdooField):
     def __new__(cls, details):
         if details['relation'] in settings.odoo_models:
             relation = settings.odoo_models[details['relation']]
-            for field in relation._meta.Fields:
+            for field in relation._meta.fields:
                 if field.name == details['relation_field']:
                     field.related_name = details['name']
         else:
