@@ -31,11 +31,13 @@ setup(
         'Programming Language :: Python :: 3.2',
         'Programming Language :: Python :: 3.3',
         'Programming Language :: Python :: 3.4',
+        'Programming Language :: Python :: 3.7',
+        'Programming Language :: Python :: 3.10',
         'Topic :: Internet :: WWW/HTTP',
     ],
     install_requires=[
-        "Django>=1.7.2",
-        "ERPpeek>=1.6",
+        "Django>=3.2.16",
+        "ERPpeek>=1.7",
         "pymemcache"
     ],
     keywords=['Odoo', 'OpenERP', 'Django', ],
