@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+import logging
+
 from django.conf import settings
 from django.db import models
 from django.core.cache import caches
@@ -127,6 +129,7 @@ class OdooModel(models.Model):
     def _convert_to_push(self, fieldnames=None):
         res = {}
         fieldnames = fieldnames or type(self)._get_odoo_fields()
+        logging.info(f"FIELDS - {fieldnames}")
         for field in type(self)._meta.fields:
             if hasattr(field, "odoo_field") and field.name in fieldnames:
                 res[field.name] = field.odoo_field.convert_back(getattr(self, field.name))
@@ -144,6 +147,7 @@ class OdooModel(models.Model):
         odoo_model = type(self)._odoo_model
         client = client or settings.odoo
         args = self._convert_to_push(fieldnames)
+        logging.info(f"ARGS - {args}")
         if self.odoo_id:
             client.model(odoo_model).write([self.odoo_id], args)
             return self.odoo_id
