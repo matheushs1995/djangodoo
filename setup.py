@@ -10,7 +10,7 @@ os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
 setup(
     name='djangodoo',
-    version='0.2.5',
+    version='0.3.0',
     packages=['djangodoo'],
     include_package_data=True,
     license='MIT License',
@@ -37,8 +37,8 @@ setup(
     ],
     install_requires=[
         "Django>=3.2.16",
-        "ERPpeek>=1.7",
-        "pymemcache"
+        "Odooly>=2.1.9",
+        "Odooly>=2.1.9",
     ],
     keywords=['Odoo', 'OpenERP', 'Django', ],
 )
